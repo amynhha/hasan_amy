@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { config as c } from './config'
 
 const ease = [0.22, 1, 0.36, 1]
+const asset = (path) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`
 const POS = ['12% 18%', '68% 12%', '40% 58%', '78% 88%']
 
 function Envelope({ onDone }) {
@@ -22,7 +24,7 @@ function Envelope({ onDone }) {
           <div className="paper fl-front" />
           <svg className="creases fl-edge" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden><path d="M0 0L50 58L100 0" /><path className="hi" d="M0 0L50 58L100 0" transform="translate(0 .4)" /></svg>
           <motion.div className="seal" animate={o ? { scale: [1, 1.12, .92] } : { scale: [1, 1.04, 1] }} transition={o ? { duration: .45 } : { duration: 3, repeat: Infinity }}>
-            <img className="wax" src="/photos/seal.png" alt="" draggable="false" />
+            <img className="wax" src={asset('photos/seal.png')} alt="" draggable="false" />
           </motion.div>
         </motion.div>
       </motion.div>
@@ -84,7 +86,7 @@ function Rsvp() {
 const Sparkles = () => <div className="sparkles" aria-hidden>{Array.from({ length: 24 }, (_, i) => <span key={i} style={{ left: `${(i * 41) % 100}%`, animationDelay: `${-i * 1.3}s`, animationDuration: `${9 + (i % 6) * 2}s`, width: 3 + (i % 3) * 2, height: 3 + (i % 3) * 2 }} />)}</div>
 
 
-const Orn = ({ cls = '' }) => <div className={`orn ${cls}`} aria-hidden><i className="sd l" /><img src="/photos/orn.png" alt="" /><i className="sd r" /></div>
+const Orn = ({ cls = '' }) => <div className={`orn ${cls}`} aria-hidden><i className="sd l" /><img src={asset('photos/orn.png')} alt="" /><i className="sd r" /></div>
 const I = {
   Ceremony: <><circle cx="9" cy="15" r="5" /><circle cx="17" cy="15" r="5" /><path d="M7 7l2-3 2 3-2 2z" /></>,
   Pictures: <><rect x="3" y="8" width="20" height="14" rx="2" /><circle cx="13" cy="15" r="4" /><path d="M9 8l1.5-3h5L17 8" /></>,
@@ -117,7 +119,11 @@ export default function App() {
           <Reveal><Head sub="Two hearts, one journey">Our Story</Head></Reveal>
           <div className="steps">{c.story.map((p, i) => (
             <motion.div key={i} className="step" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-8% 0px' }} transition={{ duration: 1, ease, delay: (i % 2) * .15 }}>
-              <div className="arch" style={{ backgroundImage: `url(${c.photos[i] || '/photos/gardenia.jpg'})`, backgroundPosition: c.photos[i] ? 'center' : POS[i] }} />
+              <div className="arch" 
+              style={{
+                backgroundImage: `url(${asset(c.photos[i] || 'photos/gardenia.jpg')})`,
+                backgroundPosition: c.photos[i] ? 'center' : POS[i]
+              }}/>
               <i className="mark" />
               <p>{p}</p>
             </motion.div>))}
