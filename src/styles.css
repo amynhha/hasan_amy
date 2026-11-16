@@ -68,7 +68,7 @@ body{text-shadow:0 1px 8px #000a}
 .line{--foh:clamp(60px,16vw,100px);-webkit-mask-image:linear-gradient(#000,#000),linear-gradient(#000,#000);mask-image:linear-gradient(#000,#000),linear-gradient(#000,#000);-webkit-mask-size:100% 100%,calc(var(--foh)*.62) calc(var(--foh)*.5);mask-size:100% 100%,calc(var(--foh)*.62) calc(var(--foh)*.5);-webkit-mask-position:0 0,50% 0;mask-position:0 0,50% 0;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-composite:xor;mask-composite:exclude}
 .env{position:fixed;inset:0;z-index:50;cursor:pointer;touch-action:manipulation;overflow:hidden}
 .env-all{position:absolute;inset:0;perspective:1400px}
-.paper{background:linear-gradient(#233322d9,#162214f0),url(/photos/gardenia.jpg) center 30%/cover}
+.paper{background:linear-gradient(#233322d9,#162214f0),url(/hasan_amy/photos/gardenia.jpg) center 30%/cover}
 .bw{position:absolute;inset:0;filter:drop-shadow(0 -8px 18px #000a)}
 .body{position:absolute;inset:0;clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%)}
 .creases{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}

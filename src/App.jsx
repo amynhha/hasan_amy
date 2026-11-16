@@ -98,7 +98,7 @@ function Frame({ children, className = '', corners = ['tl', 'tr', 'bl', 'br'] })
   return (
     <section className={`fr ${className}`}>
       <span className="line" /><Orn cls="fo" />
-      <div className="cns">{corners.map(k => <img key={k} className={`cn ${k}`} src={`/photos/c-${k}.jpg`} alt="" aria-hidden />)}<img className="cn mid ml" src="/photos/c-tr.jpg" alt="" aria-hidden /><img className="cn mid mr" src="/photos/c-tl.jpg" alt="" aria-hidden /></div>
+      <div className="cns">{corners.map(k => <img key={k} className={`cn ${k}`} src={asset(`/photos/c-${k}.jpg`)} alt="" aria-hidden />)}<img className="cn mid ml" src={asset('/photos/c-tr.jpg')} alt="" aria-hidden /><img className="cn mid mr" src={asset('/photos/c-tl.jpg')} alt="" aria-hidden /></div>
       <div className="fr-in">{children}</div>
     </section>
   )
